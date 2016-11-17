@@ -55,12 +55,23 @@ class Unknown
 		g.font = font;
 		g.fontSize = 24;
 
-		g.drawString("################################################################################", 4, 0);
-		for (i in 1 ... 48)
+		var WIDTH_IN_CHARS = 80;
+		var HEIGHT_IN_CHARS = 49;
+		
+		var CHARS = ['a', 'B', 'C', 'd', '#', '.', '@', '%', 'M', 'W', 'i', '|'];
+		var COLORS = [Color.Red, Color.Blue, Color.Green, Color.Yellow, Color.Orange, Color.Pink];
+
+		for (y in 0 ... HEIGHT_IN_CHARS)
 		{
-			g.drawString("#..............................................................................#", 4, 12 * i);
+			for (x in 0 ... WIDTH_IN_CHARS)
+			{
+				var r = Std.int(Math.random() * COLORS.length);
+				g.color = COLORS[r];
+
+				var c = Std.int(Math.random() * CHARS.length);
+				g.drawString(CHARS[c], x * 12, y * 12);
+			}
 		}
-		g.drawString("################################################################################", 4, 12 * 48);
 
 		g.end();
 
