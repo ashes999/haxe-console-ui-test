@@ -4,8 +4,8 @@ import kha.System;
 
 class Main
 {
-	static inline var screenWidth = 1024;
-  	static inline var screenHeight = 768;
+	static inline var screenWidth = 800;
+  	static inline var screenHeight = 600;
 
 	public static function main()
 	{
