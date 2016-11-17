@@ -30,7 +30,7 @@ class Unknown
 		{
 			trace("DONE");
 			initialized = true;
-			font = Assets.fonts.SpaceMono;
+			font = Assets.fonts.Inconsolata_Regular;
 			start = Date.now();
 			lastUpdate = Date.now();
 		});
@@ -66,10 +66,28 @@ class Unknown
 			for (x in 0 ... WIDTH_IN_CHARS)
 			{
 				var r = Std.int(Math.random() * COLORS.length);
-				g.color = COLORS[r];
+				g.color = Color.White; //COLORS[y % COLORS.length];
 
 				var c = Std.int(Math.random() * CHARS.length);
-				g.drawString(CHARS[c], x * 12, y * 12);
+				var char = '';
+
+				if (x == 0 || y == 0 || x == WIDTH_IN_CHARS - 1 || y == HEIGHT_IN_CHARS - 1)
+				{
+					char = '#';
+					g.color = Color.White;
+				}
+				else if (x == 25 && y == 10)
+				{
+					char = '@';
+					g.color = Color.Orange;
+				}
+				else
+				{
+					char = '.';
+					g.color = Color.fromValue(0xFFaaaaaa);
+				}
+
+				g.drawString(char, x * 12, y * 16);
 			}
 		}
 
